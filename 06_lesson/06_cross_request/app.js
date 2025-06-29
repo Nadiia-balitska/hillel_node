@@ -1,4 +1,5 @@
 const config = require("config");
+console.log(config);
 
 const path = require("path");
 const fs = require("fs");
@@ -6,12 +7,14 @@ const fs = require("fs");
 const express = require("express");
 const app = express();
 
-app.listen(config.port, () => {
-  console.log(`Server is running in port  http://localhost:${config.port}`);
-});
+app.listen(
+  config.port,
+  () => `express work on: http://localhost:${config.port}`
+);
 
+// POST data
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true })); //  form-urlencoded
 
 app.get("/", (req, res) => {
   res.send("server 2");

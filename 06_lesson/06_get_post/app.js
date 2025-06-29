@@ -1,42 +1,44 @@
-const express = require("express");
 const config = require("config");
+console.log(config);
 
 const path = require("path");
 const fs = require("fs");
-const json = require(".public/sample.json");
 
+const json = require("./public/sample.json");
+console.log(json);
+
+const express = require("express");
 const app = express();
 
-app.listen(config.port, () => {
-  console.log(`Server is running in port  http://localhost:${config.port}`);
-});
+app.listen(
+  config.port,
+  () => `express work on: http://localhost:${config.port}`
+);
+
+// POST data
+app.use(express.json());
+app.use(express.urlencoded({ extended: true })); //  form-urlencoded
 
 app.use(express.static(path.join(__dirname, "public")));
 
 app.get("/", (req, res) => {
-  res.send("home");
+  res.send("Home");
 });
 
-app.post("/get-json", (req, res) => {
-  upload.single("file")(req, res, (err) => {
-    if (err) {
-      if (err.code === "LIMIT_FILE_SIZE") {
-        console.log("err only img");
-        return res.statusCode(400).json({ err: "file to large" });
-      }
-      if (err instanceof multer.MulterError) {
-        console.log("err only img");
-        return res
-          .statusCode(400)
-          .json({ err: "file upload err" + err.message });
-      }
-      return res.status(500).json({ error: "server error" });
-    }
-    if (!req.file) {
-      console.log("err only img");
-      return res.status(400).json({ error: "only img" });
-    }
-    console.log("load file:", req.file);
-    res.send("file was loaded");
-  });
+app.get("/get-json", (req, res) => {
+  res.json(json);
+  // const filePath = path.join(__dirname, 'public', 'sample.json');
+
+  // fs.readFile(filePath, 'utf8', (err, data) => {
+  //     if (err) {
+  //         return res.status(500).send('File error');
+  //     }
+
+  //     try {
+  //         const json = JSON.parse(data);
+  //         res.json(json);
+  //     } catch (e) {
+  //         res.status(500).send('JSON error');
+  //     }
+  // });
 });

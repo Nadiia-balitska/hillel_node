@@ -5,26 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-  <body>
-    <div><button class="post">send post json</button></div>
-    <div><button class="post-form">send post json</button></div>
 
+  <body>
+    <div>
+      <button class="post">Send POST JSON</button>
+    </div>
+    <hr />
+    <div>
+      <button class="post-form">Send POST from Form</button>
+    </div>
+    <hr />
     <form action="/upload-file" method="POST" enctype="multipart/form-data">
-      <div>
-        <input type="file" name="file" />
-        <button type="submit">Load</button>
-      </div>
+      <input type="file" name="file" />
+      <button type="submit">Загрузить</button>
     </form>
 
     <hr />
 
-    <form id="upload-form">
-      <div>
-        <input type="file" name="file" id="file" />
-        <button type="submit">Load</button>
-      </div>
+    <form id="uploadForm">
+      <input type="file" name="file" id="fileInput" />
+      <button type="submit">Загрузить</button>
     </form>
 
-    <script src="./js/fetch.js"></script>
+    <script src="/js/fetch.js"></script>
   </body>
 </html>

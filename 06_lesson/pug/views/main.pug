@@ -1,40 +1,47 @@
 doctype html
-html 
-    head 
-        meta(charset='UTF-8')
-        title PUG 
+html
+    head
+        meta(charset="UTF-8")
+        title PUG
         meta(name='viewport' content='width=device-width, initial-scale=1')
         link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css", rel="stylesheet")
-
-    body 
-        .container 
+    
+    body
+        .container
             h1 PUG
-            p=t1
-            p!=t1
-            p hello #{t1}
-            p hello !{t1}
+            p= t2
+            p!= t2
+            p hello #{t2}
+            p hello !{t2}
             | text node
 
             // HTML comment
             //- HTML comment
-            
-            if b  
-               p lorem ipsum
-            else 
-               p negative 
+
+
+            if b
+                p lorem ipsum
+            else
+                p Negative
 
             if y < 18
-               p 18
+                p < 18
             else if y < 30
-               p  30
-
-            ul 
-                each item, index in data1 
-                    li 
-                        span=item 
-                    li #{item} #{index}
+                p < 30
             
+            // iteration
+
+            ul
+                each item, index in data1
+                    li
+                        span= item
+                        | 
+                        span= index
+                    li #{item} #{index}
+
             p= price.toFixed(2) + ' uah'
 
-            - const formatter = new Int1.NumberFormat('uk-UA',{style:'currency', currency: 'UAH'})
-            p= formatter
+            - const formatter = new Intl.NumberFormat('uk-UA', { style: 'currency', currency: 'UAH' })
+            p= formatter.format(price)
+
+            p= Math.round(fractaion)

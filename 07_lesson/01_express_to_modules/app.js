@@ -7,6 +7,9 @@ const morgan = require("morgan");
 const express = require("express");
 const app = express();
 
+const debugRoute = require("debug")("app:route");
+const debugDB = require("debug")("app:db");
+
 const mainRouter = require("./routes/main.js");
 const aboutRouter = require("./routes/about.js");
 
@@ -29,11 +32,17 @@ app.use(morgan("tiny", { stream: accessLogStream }));
 app.listen(config.port, () =>
   console.log(`express work on: http://localhost:${config.port}`)
 );
+app.use((req, res, next) => {
+  debugRoute(`route: ${req.method} ${req.url}`);
+  debugDB(`some text `);
+
+  next();
+});
 
 app.use("/", mainRouter);
 app.use("/about", aboutRouter);
 
-app.use(function (req, res, next) {
+app.use((req, res, next) => {
   // next(createError(404));
 });
 

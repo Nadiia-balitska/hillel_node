@@ -1,2 +1,5 @@
 GET / 304 - - 1.998 ms
 GET /favicon.ico - - - - ms
+GET / 304 - - 4.808 ms
+GET /about/123 304 - - 634.591 ms
+GET /favicon.ico - - - - ms

@@ -1,0 +1,5 @@
+GET /page 404 1939 - 277.550 ms
+GET / 200 199 - 68.611 ms
+GET /favicon.ico 404 1939 - 1.676 ms
+GET / 304 - - 263.154 ms
+GET /form 200 330 - 23.249 ms

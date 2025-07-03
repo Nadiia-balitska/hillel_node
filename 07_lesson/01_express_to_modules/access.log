@@ -3,3 +3,5 @@ GET /favicon.ico - - - - ms
 GET / 304 - - 4.808 ms
 GET /about/123 304 - - 634.591 ms
 GET /favicon.ico - - - - ms
+GET / 304 - - 21.804 ms
+GET /favicon.ico - - - - ms

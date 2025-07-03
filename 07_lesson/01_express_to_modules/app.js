@@ -1,5 +1,3 @@
-const config = require("config");
-
 const path = require("path");
 const fs = require("fs");
 const morgan = require("morgan");
@@ -29,9 +27,6 @@ app.use(morgan("tiny", { stream: accessLogStream }));
 // app.use(morgan("combined"));
 // app.use(morgan("tiny"));
 
-app.listen(config.port, () =>
-  console.log(`express work on: http://localhost:${config.port}`)
-);
 app.use((req, res, next) => {
   debugRoute(`route: ${req.method} ${req.url}`);
   debugDB(`some text `);
@@ -49,3 +44,5 @@ app.use((req, res, next) => {
 app.use(function (req, res, next) {
   res.render("error");
 });
+
+module.exports = app;

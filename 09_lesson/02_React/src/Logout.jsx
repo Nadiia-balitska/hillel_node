@@ -7,7 +7,7 @@ export default function Logout() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // sessionStorage.removeItem('jwt');
+    sessionStorage.removeItem('jwt');
     window.location.replace("/");
   }, []);
 

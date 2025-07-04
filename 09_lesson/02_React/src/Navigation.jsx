@@ -7,7 +7,7 @@ export default function Navigation() {
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    const token = null;
+    const token = sessionStorage.getItem('jwt');
     if (token) setData(token);
   }, []);
 

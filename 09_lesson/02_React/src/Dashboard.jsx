@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-// import authFetch from './utils/auth_fetch';
+import authFetch from './utils/auth_fetch';
 
 export default function Dashboard() {
 
@@ -8,7 +8,9 @@ export default function Dashboard() {
 
 
     useEffect(() => {
-        fetch('http://localhost:3100/dashboard')
+        const token = sessionStorage.getItem('jwt');
+        if (token){
+        authFetch('http://localhost:3100/dashboard')
             .then((res) => res.json())
             .then((json) => {
                 setData(json);
@@ -18,7 +20,10 @@ export default function Dashboard() {
                 console.error('Error:', err);
                 setLoading(false);
             });
-    
+        }
+        else {
+            window.location.replace("/login");
+        }
     }, []);
     
 

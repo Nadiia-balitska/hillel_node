@@ -1,0 +1,14 @@
+include nav
+
+.container
+    
+    h1 Login
+    if error
+      p(style="color:red")= error
+
+    form(method="POST" action="/send-code")
+      div
+        input(type="text" name="email" placeholder="Email" required)
+      
+      div
+        button(type="submit") Увійти

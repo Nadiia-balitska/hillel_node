@@ -6,7 +6,6 @@ const { mongoUrl } = require("./db");
 module.exports = session({
   store: MongoStore.create({
     mongoUrl,
-    // collectionName: config.dbSessionCollectionName,
     collectionName: "sessions",
 
     ttl: 60 * 60,

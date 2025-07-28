@@ -1,0 +1,23 @@
+include header
+
+.container
+    
+    h1 Registration
+    if error
+      p(style="color:red")= error
+
+    form(method="POST" action="/register")
+      div
+        input(type="text" name="email" placeholder="Email користувача" required)
+      div
+        input(type="password" name="password" placeholder="Пароль" required)
+      div
+        label Виберіть роль:
+        label
+          input(type="radio" name="role" value="user" checked) 
+          | User
+        label
+          input(type="radio" name="role" value="admin") 
+          | Admin
+      div
+        button(type="submit") Send

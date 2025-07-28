@@ -1,0 +1,43 @@
+include header
+
+.container
+    
+    h1 Hi, #{email}
+    h2 Dashboard
+    p Ви увійшли в систему.
+
+    div
+      a(href="/logout") Вийти
+    div
+
+    h3 Список користувачів:
+    if users && users.length
+      table
+        tr
+          th 
+          th email
+          th role
+          th createdAt
+        each item, index in users
+          if item.email == email
+            tr
+              td.bg-purple-50 #{index + 1}
+              td.bg-purple-50= item.email
+              td.bg-purple-50= item.role
+              td.bg-purple-50= item.createdAt
+          else
+            tr
+              td #{index + 1}
+              td= item.email
+              td= item.role
+              td= item.createdAt
+
+    h3 Ваші задачі:
+    if tasks.length
+      ul
+        each task in tasks
+          li
+            strong= task.title
+            |  - #{task.description}
+    else
+      p Немає задач для вашої ролі.

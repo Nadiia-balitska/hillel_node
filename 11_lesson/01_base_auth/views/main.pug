@@ -1,0 +1,13 @@
+include header
+
+.container
+    
+    h1 Main
+
+    each item in articles
+        h5
+            a(href=`/article/${item.url}`)= item.title
+        div
+            span= item.createdAt
+            | &nbsp;
+            span views: #{item.views}

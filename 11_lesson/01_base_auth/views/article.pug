@@ -1,0 +1,17 @@
+include header
+
+.container
+    
+    h1= article.title
+
+    a(href="/articles") to articles
+    hr
+    div= article.content
+    hr
+    div
+        span= new Date(article.createdAt).toLocaleString('en-GB', {day: '2-digit', month: 'short', year: 'numeric',hour: '2-digit', minute: '2-digit'})
+        | &nbsp; | &nbsp;
+        span views: #{article.views}
+    hr
+    div Author: #{article.author}
+    hr

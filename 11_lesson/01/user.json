@@ -1,0 +1,37 @@
+[
+  {
+    "password": "password123",
+    "username": "John Doe",
+    "email": "john.doe@example.com",
+    "role": "user",
+    "createdAt": "2023-01-15T10:20:30Z"
+  },
+  {
+    "password": "123",
+    "username": "Jane Smith",
+    "email": "admin@ua.com",
+    "role": "admin",
+    "createdAt": "2023-02-10T12:00:00Z"
+  },
+  {
+    "password": "zxcvb789",
+    "username": "Alex Jones",
+    "email": "alex.jones@example.com",
+    "role": "user",
+    "createdAt": "2023-03-05T08:45:00Z"
+  },
+  {
+    "password": "passw0rd",
+    "username": "Emily White",
+    "email": "emily.white@example.com",
+    "role": "moderator",
+    "createdAt": "2023-04-01T09:30:00Z"
+  },
+  {
+    "password": "12345abcde",
+    "username": "Michael Brown",
+    "email": "michael.brown@example.com",
+    "role": "user",
+    "createdAt": "2023-05-20T14:15:00Z"
+  }
+]
